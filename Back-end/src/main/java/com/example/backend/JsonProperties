@@ -1,0 +1,7 @@
+Dictionary add
+{
+    englishText : "",
+    turkishText : "",
+    description : ""
+
+}
