@@ -15,4 +15,6 @@ public interface DictionaryService {
     Dictionary update(int id, DictionaryRequestDto dictionaryRequestDto);
 
     String delete(int id);
+
+    List<Dictionary> getSearchList(String x);
 }

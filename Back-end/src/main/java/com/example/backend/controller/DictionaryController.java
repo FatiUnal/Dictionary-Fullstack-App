@@ -1,7 +1,6 @@
 package com.example.backend.controller;
 
 import com.example.backend.dto.DictionaryRequestDto;
-import com.example.backend.dto.DictionaryResponseDto;
 import com.example.backend.entity.Dictionary;
 import com.example.backend.service.DictionaryService;
 import org.springframework.http.HttpStatus;
@@ -13,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/dictionary")
+@CrossOrigin("*")
 public class DictionaryController {
 
     private DictionaryService dictionaryService;
@@ -23,11 +23,15 @@ public class DictionaryController {
     @GetMapping
     public ResponseEntity<?> getAll(){
         List<Dictionary> list = dictionaryService.getAll();
+        for (Dictionary dic:list) {
+            System.out.println(dic);
+        }
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<?> create(@RequestBody DictionaryRequestDto dictionaryRequestDto){
+        System.out.println("create");
         Optional<Dictionary> dictionary =Optional.ofNullable(dictionaryService.create(dictionaryRequestDto));
 
         if (dictionary.isPresent())
@@ -52,6 +56,15 @@ public class DictionaryController {
     public ResponseEntity<?> delete(@PathVariable int id){
         String dictionary = dictionaryService.delete(id);
         return new ResponseEntity<>(dictionary,HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/search/{x}")
+    public ResponseEntity<?> search(@PathVariable String x){
+
+        List<Dictionary> dictionaryList = dictionaryService.getSearchList(x);
+
+
+        return new ResponseEntity<>(dictionaryList,HttpStatus.OK);
     }
 
 

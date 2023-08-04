@@ -13,6 +13,8 @@ public class Dictionary {
     private String turkishText;
     private String description;
 
+
+
     public Dictionary(){
 
     }

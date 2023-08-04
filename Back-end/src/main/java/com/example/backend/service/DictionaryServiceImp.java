@@ -7,7 +7,9 @@ import com.example.backend.exception.DictionaryNotFound;
 import com.example.backend.repository.DictionaryRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class DictionaryServiceImp implements DictionaryService{
@@ -48,5 +50,14 @@ public class DictionaryServiceImp implements DictionaryService{
             throw new DictionaryNotDelete(id);
 
         return "deleted";
+    }
+
+    @Override
+    public List<Dictionary> getSearchList(String x) {
+        List<Dictionary> dictionaryList = dictonaryRepo.findAllByEnglishTextStartingWithOrTurkishTextStartingWith(x);
+        for (int i = 0;i<dictionaryList.size();i++){
+            System.out.println(dictionaryList.get(i));
+        }
+        return dictionaryList;
     }
 }

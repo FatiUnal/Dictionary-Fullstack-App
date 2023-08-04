@@ -7,6 +7,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -17,26 +18,38 @@
       <div class="arama">
         <nav class="navbar navbar-light">
           <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button type="button" class="btn btn-primary">Search</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"  id="searchInput">
+            <button type="button" class="btn btn-primary" id="searchbtn">Search</button>
           </form>
         </nav>
+
+        <nav class="navbar navbar-light">
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Change/Delete" aria-label="delete" id="delorchange">
+            <button type="button" class="btn btn-warning mr-2" data-toggle="tooltip" title="Pls fill in the text insertion field!" onclick="changeText()">Change</button>
+            <button type="button" class="btn btn-danger" onclick="deleteText()">Delete</button>
+
+            
+
+          </form>
+        </nav>
+
       </div>
 
       <div class="ekle">
         <nav class="navbar navbar-light">
           <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Turkish Text" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Turkish Text" aria-label="Search" id="turkishText">
           </form>
         </nav>
         <nav class="navbar navbar-light">
           <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="English Text" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" placeholder="English Text" aria-label="Search" id="englishText">
           </form>
         </nav><nav class="navbar navbar-light">
           <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Description" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add Text</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="Description" aria-label="Search" id="description">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="add()">Add Text</button>
           </form>
         </nav>
 
@@ -44,63 +57,19 @@
     </div>
 
     <!--Üst Alt-->
+    <div class="d-flex justify-content-center align-items-center">
+      <button type="button" class="btn btn-info" id="refresh">Refresh <i class="fa fa-refresh" aria-hidden="true"></i></button>
+    </div>
 
-    <div class="tab">
-      <div class="row">
+    <div class="tab">      
 
-
-
-        <div class="col-md-3">
-          <div class="card border-success mb-3" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body text-success">
-              <h5 class="card-title">Success card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-md-3">
-          <div class="card border-success mb-3" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body text-success">
-              <h5 class="card-title">Success card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="card border-success mb-3" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body text-success">
-              <h5 class="card-title">Success card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="card border-success mb-3" style="max-width: 18rem;">
-            <div class="card-header">Header</div>
-            <div class="card-body text-success">
-              <h5 class="card-title">Success card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            </div>
-          </div>
-        </div>
-
+      <div class="row" id="tabrow">
+        
 
 
       </div>
 
-
-
-      <!-- Diğer kart grupları buraya gelecek -->
+      
     </div>
 
 

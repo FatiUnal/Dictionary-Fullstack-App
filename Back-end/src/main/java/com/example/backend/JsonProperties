@@ -1,7 +1,8 @@
-Dictionary add
+Dictionary add request
 {
     englishText : "",
     turkishText : "",
     description : ""
-
 }
+
+
